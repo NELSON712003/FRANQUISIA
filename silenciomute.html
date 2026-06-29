@@ -1,7 +1,6 @@
-<button class="btn-stop-rec recording" id
-                    ="btnStopRecording" onclick="toggleManualRecordingPause
-                      ()">
-                      ⏹ OFF CAMARA
+<!DOCTYP
+                <button class="btn-stop-rec recording" id="btnStopRecording" onclick="toggleManualRecordingPause(
+                    ⏹ OFF CAMARA
                 </button>
 <html lang="es">
 <head>
@@ -11,38 +10,38 @@
     <title>Mesa 2 - Sistema de Marcador con Transmisión en Vivo</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #fff; overflow: hidden; height: 100vh; user-select: none; }
-        .container { width: 100vw; height: 100vh; display: flex; flex-direction: column; padding: 10px; gap: 10px; }
-        .header { display: flex; justify-content: space-between; align-items: center; background: #16213e; padding: 10px 20px; border-radius: 10px; border: 2px solid #0f3460; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #fff; 
+        .container { width: 100vw; height: 100vh; display: flex; flex-direction: column; padding: 10px; gap: 10px
+        .header { display: flex; justify-content: space-between; align-items: center; background: #16213e; paddi
         .header-left { display: flex; align-items: center; gap: 20px; }
         .header h1 { font-size: 1.5em; color: #e94560; display: flex; align-items: center; gap: 10px; }
         .live-indicator { color: #e74c3c; font-size: 0.6em; animation: blink 1s infinite; }
-        .broadcast-status { display: flex; align-items: center; gap: 10px; background: rgba(231, 76, 60, 0.2); padding: 5px 15px; border-radius: 20px; border: 1px solid #e74c3c; }
-        .broadcast-dot { width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; animation: pulse 2s infinite; }
+        .broadcast-status { display: flex; align-items: center; gap: 10px; background: rgba(231, 76, 60, 0.2); p
+        .broadcast-dot { width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; animation: pulse 2s i
         .broadcast-text { font-size: 0.8em; color: #e74c3c; font-weight: bold; }
         .viewer-count { font-size: 0.75em; color: #aaa; margin-left: 10px; }
         .player-selector { display: flex; gap: 10px; align-items: center; }
-        .btn-inicio-juego { padding: 10px 20px; border: none; border-radius: 8px; background: #2ecc71; color: #fff; cursor: pointer; font-size: 1em; font-weight: bold; transition: all 0.3s; text-transform: uppercase; }
+        .btn-inicio-juego { padding: 10px 20px; border: none; border-radius: 8px; background: #2ecc71; color: #
         .btn-inicio-juego:hover { background: #27ae60; transform: scale(1.05); }
-        .btn-player-count { padding: 10px 20px; border: none; border-radius: 8px; background: #0f3460; color: #fff; cursor: pointer; font-size: 1em; transition: all 0.3s; }
+        .btn-player-count { padding: 10px 20px; border: none; border-radius: 8px; background: #0f3460; color: #
         .btn-player-count:hover, .btn-player-count.active { background: #e94560; transform: scale(1.05); }
         .main-content { flex: 1; display: flex; gap: 10px; min-height: 0; }
-        .players-left, .players-right { display: flex; flex-direction: column; gap: 10px; width: 33.33%; min-width: 200px; }
-        .player-card { background: #16213e; border-radius: 15px; padding: 15px; border: 3px solid #0f3460; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-between; position: relative; transition: all 0.3s; min-height: 0; height: 100%; max-height: 100%; }
+        .players-left, .players-right { display: flex; flex-direction: column; gap: 10px; width: 33.33%; min-widt
+        .player-card { background: #16213e; border-radius: 15px; padding: 15px; border: 3px solid #0f3460; flex
         .player-card.active { border-color: #e94560; box-shadow: 0 0 20px rgba(233, 69, 96, 0.5); }
         .player-card.yellow-theme { background: #ffff5e; border-color: #d68910; color: #000; }
-        .player-card.white-theme { background: linear-gradient(135deg, #ecf0f1, #bdc3c7); color: #000; border-color: #95a5a6; }
-        .player-number { font-size: 1em; font-weight: bold; opacity: 0.8; align-self: flex-start; margin-bottom: 10px; }
+        .player-card.white-theme { background: linear-gradient(135deg, #ecf0f1, #bdc3c7); color: #000; border-
+        .player-number { font-size: 1em; font-weight: bold; opacity: 0.8; align-self: flex-start; margin-bottom: 
         .player-card.yellow-theme .player-number { color: #000; }
         .player-card.white-theme .player-number { color: #000; }
-        .score-display { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 0; }
-        .player-score { font-size: 70px; font-weight: bold; cursor: pointer; transition: transform 0.1s; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); user-select: none; }
-        .player-card.yellow-theme .player-score { color: #000; text-shadow: 2px 2px 4px rgba(255,255,255,0.3); }
+        .score-display { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; min-h
+        .player-score { font-size: 70px; font-weight: bold; cursor: pointer; transition: transform 0.1s; text-sha
+        .player-card.yellow-theme .player-score { color: #000; text-shadow: 2px 2px 4px rgba(255,255,255,0.3); 
         .player-card.white-theme .player-score { color: #000; text-shadow: 2px 2px 4px rgba(255,255,255,0.3); }
         .player-score:active { transform: scale(0.95); }
-        .score-controls { display: flex; gap: 8px; justify-content: center; width: 100%; margin-top: 15px; padding-top: 15px; border-top: 2px solid rgba(0,0,0,0.1); flex-shrink: 0; }
-        .score-btn { flex: 1; min-width: 35px; height: 40px; border: none; border-radius: 8px; background: #0f3460; color: #fff; font-size: 1.2em; font-weight: bold; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .score-btn:hover { background: #e94560; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .score-controls { display: flex; gap: 8px; justify-content: center; width: 100%; margin-top: 15px; paddin
+        .score-btn { flex: 1; min-width: 35px; height: 40px; border: none; border-radius: 8px; background: #0f34
+        .score-btn:hover { background: #e94560; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0
         .score-btn:active { transform: translateY(0); }
         .score-btn.add { background: #27ae60; }
         .score-btn.add:hover { background: #2ecc71; }
@@ -54,46 +53,42 @@
         .player-card.white-theme .score-btn { background: rgba(0,0,0,0.1); color: #2c3e50; }
         .player-card.white-theme .score-btn.add { background: rgba(39, 174, 96, 0.8); color: #fff; }
         .player-card.white-theme .score-btn.subtract { background: rgba(192, 57, 43, 0.8); color: #fff; }
-        .center-panel { width: 33.33%; min-width: 250px; display: flex; flex-direction: column; gap: 10px; position: relative; }
-        .camera-container { flex: 1; background: #000; border-radius: 15px; overflow: hidden; position: relative; border: 3px solid #0f3460; min-height: 200px; display: flex; flex-direction: column; }
+        .center-panel { width: 33.33%; min-width: 250px; display: flex; flex-direction: column; gap: 10px; positi
+        .camera-container { flex: 1; background: #000; border-radius: 15px; overflow: hidden; position: relative
         .camera-feed { width: 100%; height: 100%; object-fit: cover; flex: 1; }
-        .camera-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a2e, #16213e); color: #0f3460; font-size: 1.1em; text-align: center; padding: 20px; flex: 1; }
-        .delay-indicator { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #e94560; padding: 5px 12px; border-radius: 15px; font-size: 0.75em; font-weight: bold; z-index: 10; border: 1px solid #e94560; }
-        .footer { display: flex; justify-content: space-between; align-items: center; background: #16213e; padding: 15px; border-radius: 10px; border: 2px solid #0f3460; gap: 20px; }
-        .controls-section { display: flex; gap: 15px; align-items: center; margin-left: auto; }
-        .control-btn { padding: 8px 30px; border: none; border-radius: 10px; font-size: 1.1em; cursor: pointer; transition: all 0.3s; font-weight: bold; text-transform: uppercase; line-height: 1.2; }
-        .btn-sound { background: #3498db; color: #fff; padding: 15px; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
-        .btn-sound.muted { background: #7f8c8d; }
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 1000; }
+        .camera-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: cent
+        .delay-indicator { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #
+        .control-btn { padding: 8px 30px; border: none; border-radius: 10px; font-size: 1.1em; cursor: pointer; t
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8
         .modal-overlay.active { display: flex; }
-        .modal-content { background: #16213e; padding: 40px; border-radius: 20px; border: 3px solid #e94560; text-align: center; max-width: 500px; }
+        .modal-content { background: #16213e; padding: 40px; border-radius: 20px; border: 3px solid #e94560; te
         .modal-content h2 { margin-bottom: 20px; color: #e94560; }
         .modal-buttons { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
-        .modal-btn { padding: 15px 40px; border: none; border-radius: 10px; font-size: 1.2em; cursor: pointer; transition: all 0.3s; }
+        .modal-btn { padding: 15px 40px; border: none; border-radius: 10px; font-size: 1.2em; cursor: pointer; tr
         .modal-btn.yes { background: #27ae60; color: #fff; }
         .modal-btn.no { background: #e74c3c; color: #fff; }
         .modal-btn:hover { transform: scale(1.05); }
         .hidden { display: none !important; }
-        @media (max-width: 1400px) { .player-score { font-size: 55px; } .score-btn { height: 35px; font-size: 1.1em; min-width: 30px; } }
-        @media (max-width: 1200px) { .player-score { font-size: 45px; } .score-btn { height: 30px; font-size: 1em; min-width: 28px; } .center-panel { min-width: 200px; } }
+        @media (max-width: 1400px) { .player-score { font-size: 55px; } .score-btn { height: 35px; font-size: 1.1
+        @media (max-width: 1200px) { .player-score { font-size: 45px; } .score-btn { height: 30px; font-size: 1em
         .player-card .player-score { font-size: 70px; }
         .two-players-mode .player-card .player-score { font-size: 180px !important; line-height: 1; }
         .two-players-mode .player-card { justify-content: center; }
-        .two-players-mode .score-display { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 0; }
+        .two-players-mode .score-display { flex: 1; display: flex; align-items: center; justify-content: center; 
         .two-players-mode .player-number { position: absolute; top: 15px; left: 15px; }
         .two-players-mode .score-controls { margin-top: auto; padding-top: 15px; }
-        .fullscreen-btn { position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; border-radius: 10px; background: #0f3460; border: 2px solid #3498db; color: #fff; font-size: 1.5em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .fullscreen-btn:hover { background: #3498db; transform: scale(1.1); box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
+        .fullscreen-btn { position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; border-radius: 10
+        .fullscreen-btn:hover { background: #3498db; transform: scale(1.1); box-shadow: 0 6px 15px rgba(0,0,0,0
         .fullscreen-btn:active { transform: scale(0.95); }
-        .camera-selector-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 2000; flex-direction: column; gap: 20px; }
+        .camera-selector-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba
         .camera-selector-overlay.active { display: flex; }
         .camera-selector-title { font-size: 1.5em; color: #e94560; margin-bottom: 10px; }
-        .camera-list { display: flex; flex-direction: column; gap: 10px; max-width: 500px; width: 90%; max-height: 60vh; overflow-y: auto; }
-        .camera-option { background: #16213e; border: 2px solid #0f3460; border-radius: 10px; padding: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 15px; }
+        .camera-list { display: flex; flex-direction: column; gap: 10px; max-width: 500px; width: 90%; max-height
+        .camera-option { background: #16213e; border: 2px solid #0f3460; border-radius: 10px; padding: 15px; cu
         .camera-option:hover { border-color: #e94560; transform: translateX(5px); }
         .camera-option.selected { border-color: #2ecc71; background: rgba(46, 204, 113, 0.1); }
         .camera-option .camera-icon { font-size: 1.5em; }
-        .btn-refresh-cameras { background: #3498db; color: #fff; border: none; padding: 10px 30px; border-radius: 8px; cursor: pointer; font-size: 1em; transition: all 0.3s; }
+        .btn-refresh-cameras { background: #3498db; color: #fff; border: none; padding: 10px 30px; border-radiu
         .btn-refresh-cameras:hover { background: #2980b9; transform: scale(1.05); }
 
         /* ===== BARRA DE CONTROL SIMPLE (PANTALLA 1) - SIN SLIDER ===== */
@@ -182,7 +177,7 @@
         .playback-header { 
             width: 100%; 
             max-width: 1400px; 
-            display: flex; 
+            display: none; 
             justify-content: space-between; 
             align-items: center; 
             padding: 15px 20px; 
@@ -242,6 +237,7 @@
             font-weight: bold; 
             font-size: 0.9em; 
             z-index: 10; 
+            display: none; 
         }
 
         /* Buffer/Slider de la Pantalla 2 */
@@ -494,8 +490,173 @@
         }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
-    </style>
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 70% { box-shadow: 0 0 0 10px rgba
+    
+        /* ===== PANEL DE DETECCIÓN DE MOVIMIENTO ===== */
+        .motion-panel {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: linear-gradient(180deg, rgba(10,10,26,0.95) 0%, rgba(22,33,62,0.98) 100%);
+            border: 2px solid #0f3460;
+            border-radius: 12px;
+            padding: 12px 18px;
+            z-index: 200;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.85em;
+            color: #aaa;
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            min-width: 240px;
+            display: none;
+        }
+        .motion-panel.visible {
+            display: block;
+        }
+        .motion-panel.active-motion { border-color: #e74c3c; box-shadow: 0 0 20px rgba(231,76,60,0.3); }
+        .motion-panel.inactive-motion { border-color: #0f3460; }
+        .motion-panel.paused-motion { border-color: #f39c12; box-shadow: 0 0 15px rgba(243,156,18,0.3); }
+        .motion-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .motion-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #27ae60;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        .motion-dot.detected {
+            background: #e74c3c;
+            box-shadow: 0 0 12px rgba(231,76,60,0.8);
+            animation: pulseMotion 1s infinite;
+        }
+        .motion-dot.paused {
+            background: #f39c12;
+            box-shadow: 0 0 12px rgba(243,156,18,0.8);
+        }
+        @keyframes pulseMotion {
+            0% { box-shadow: 0 0 0 0 rgba(231,76,60,0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(231,76,60,0); }
+            100% { box-shadow: 0 0 0 0 rgba(231,76,60,0); }
+        }
+        .motion-title { font-weight: 600; transition: color 0.3s; }
+        .motion-title.detected { color: #e74c3c; font-weight: bold; }
+        .motion-title.paused { color: #f39c12; }
+        .motion-info {
+            font-size: 0.78em;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .motion-info span { color: #888; }
+        .motion-info .value { color: #e94560; font-family: 'Courier New', monospace; font-weight: bold; }
+        .motion-info .value.paused { color: #f39c12; }
+        .motion-info .value.recording { color: #e74c3c; }
+
+        /* ===== BOTÓN STOP DE GRABACIÓN ===== */
+        .btn-stop-rec {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #c0392b;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-stop-rec:hover {
+            background: #e74c3c;
+            transform: scale(1.05);
+        }
+        .btn-stop-rec.recording {
+            background: #c0392b;
+            animation: pulseStop 2s infinite;
+        }
+        .btn-stop-rec.paused {
+            background: #f39c12;
+            animation: none;
+        }
+        .btn-stop-rec.paused:hover {
+            background: #f1c40f;
+        }
+        @keyframes pulseStop {
+            0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(192, 57, 43, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+        }
+
+        /* ===== BOTÓN DESACTIVAR CÁMARA DEL ENVIVO ===== */
+        .btn-toggle-broadcast {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #e74c3c;
+            color: #fff;
+            font-size: 0.85em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: pulse 2s infinite;
+        }
+        .btn-toggle-broadcast:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+        .btn-toggle-broadcast.inactive {
+            background: #7f8c8d;
+            animation: none;
+        }
+        .btn-toggle-broadcast.inactive:hover {
+            background: #95a5a6;
+        }
+
+        /* ===== BOTÓN SILENCIAR/ESCUCHAR AUDIO ===== */
+        .btn-sound-toggle {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #0f3460;
+            color: #fff;
+            font-size: 0.85em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-sound-toggle:hover {
+            background: #e94560;
+            transform: scale(1.05);
+        }
+        .btn-sound-toggle.muted {
+            background: #7f8c8d;
+        }
+        .btn-sound-toggle.muted:hover {
+            background: #95a5a6;
+        }
+</style>
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 </head>
@@ -565,7 +726,7 @@
                             justify-content: center;
                             margin-bottom: 25px;
                         ">
-                            <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" class="pin-input" id="pin1" style="
+                            <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" class="pin-
                                 width: 60px; height: 70px;
                                 background: #0a0a1a;
                                 border: 3px solid #0f3460;
@@ -579,7 +740,7 @@
                                 caret-color: transparent;
                                 -webkit-text-security: disc;
                             ">
-                            <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" class="pin-input" id="pin2" style="
+                            <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" class="pin-
                                 width: 60px; height: 70px;
                                 background: #0a0a1a;
                                 border: 3px solid #0f3460;
@@ -593,7 +754,7 @@
                                 caret-color: transparent;
                                 -webkit-text-security: disc;
                             ">
-                            <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" class="pin-input" id="pin3" style="
+                            <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" class="pin-
                                 width: 60px; height: 70px;
                                 background: #0a0a1a;
                                 border: 3px solid #0f3460;
@@ -607,7 +768,7 @@
                                 caret-color: transparent;
                                 -webkit-text-security: disc;
                             ">
-                            <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" class="pin-input" id="pin4" style="
+                            <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" class="pin-
                                 width: 60px; height: 70px;
                                 background: #0a0a1a;
                                 border: 3px solid #0f3460;
@@ -810,15 +971,13 @@
                 </div>
             </div>
             <div class="player-selector">
-                <button class="btn-inicio-juego" onclick="confirmResetFromHeader()">
-                    🔄 INICIO JUEGO
-                </button>
+                
                 <button class="btn-player-count" onclick="setPlayerCount(2)">2 JUGADOR</button>
                 <button class="btn-player-count" onclick="setPlayerCount(3)">3 JUGADOR</button>
                 <button class="btn-player-count" onclick="setPlayerCount(4)">4 JUGADOR</button>
                 <button class="btn-player-count" onclick="setPlayerCount(5)">5 JUGADOR</button>
                 <button class="btn-player-count" onclick="setPlayerCount(6)">6 JUGADOR</button>
-                <button class="btn-inicio-juego" onclick="showPinChangeModal()" style="background: #9b59b6; margin-left: 10px;">
+                <button class="btn-inicio-juego" onclick="showPinChangeModal()" style="background: #9b59b6; marg
                     🔐 CAMBIAR PIN
                 </button>
             </div>
@@ -831,24 +990,16 @@
                     <div class="camera-placeholder" id="cameraPlaceholder">
                         <div style="font-size: 2.5em; margin-bottom: 10px;">📹</div>
                         <div id="placeholderText">Buscando cámara...</div>
-                        <button class="btn-refresh-cameras" style="margin-top: 15px;" onclick="showCameraSelector()">
+                        <button class="btn-refresh-cameras" style="margin-top: 15px;" onclick="showCameraSelector
                             📷 Seleccionar Cámara
                         </button>
                     </div>
                     <video class="camera-feed hidden" id="cameraFeed" autoplay muted playsinline></video>
-                    <video class="camera-feed" id="delayedVideo" autoplay playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:5; background:#000;"></video>
+                    <video class="camera-feed" id="delayedVideo" autoplay playsinline style="position:absolute; t
                     <div class="delay-indicator" id="delayIndicator" style="display:none;">⏱️ RETARDO: 10s</div>
                 </div>
             </div>
             <div class="players-right" id="playersRight"></div>
-        </div>
-
-        <div class="footer">
-            <div class="controls-section">
-                <button class="control-btn btn-sound" id="soundBtn" onclick="toggleSound()">
-                    🔊
-                </button>
-            </div>
         </div>
     </div>
 
@@ -859,20 +1010,38 @@
             <span>GRABANDO</span>
             <span class="live-time" id="liveRecordingTime">00:00:00</span>
         </div>
-        <button class="live-control-btn recording" id="btnGoLive" onclick="goToLive()">
+<button class="live-control-btn" id="btnSoundToggle" onclick="toggleSound()" title="Silenciar/Escuchar audio de l
+            🔊
+        </button>
+        <button class="live-control-btn" id="fullscreenBtn" onclick="toggleFullscreen()" title="Pantalla Completa
+            ⛶
+        </button>
+        <button class="live-control-btn" id="btnInicioJuego" onclick="confirmResetFromHeader()" style="background
+            🔄 INICIO JUEGO
+        </button>
+        <button class="live-control-btn recording" id="btnStopRecBar" onclick="toggleManualRecordingPause()" styl
+            ⏹ OFF CAMARA
+        </button>
+        <button class="live-control-btn recording" id="btnGoLive" onclick="goToLive()" style="display:none;">
             ● EN VIVO
         </button>
         <button class="live-control-btn" onclick="openBufferScreen()">
-            📼 ABRIR BUFFER
+            📼 REPETICIÓN
         </button>
-        <button class="live-control-btn" onclick="goBack10s()">
+        <button class="live-control-btn" onclick="goBack10s()" style="display:none !important;">
             ⏪ -10s
         </button>
-        <button class="live-control-btn" onclick="goForward10s()">
+        <button class="live-control-btn" onclick="goForward10s()" style="display:none !important;">
             ⏩ +10s
         </button>
-        <button class="live-control-btn" id="btnLivePause" onclick="togglePausePlay()">
+        <button class="live-control-btn" id="btnLivePause" onclick="togglePausePlay()" style="display:none !impor
             ⏸️ PAUSAR
+        </button>
+        <button class="live-control-btn" id="btnMotionToggle" onclick="toggleMotionDetection()" title="Activar/De
+            🎯 SENSOR MOV
+        </button>
+        <button class="live-control-btn" id="btnToggleBroadcast" onclick="toggleBroadcast()" title="Activar/Desac
+            🔒 JUEGO PRIVADO
         </button>
     </div>
 
@@ -919,7 +1088,7 @@
 
             <!-- Controles -->
             <div class="buffer-controls">
-                <button class="buffer-btn close-btn" onclick="closeBufferScreen()">
+                <button class="buffer-btn close-btn" onclick="closeBufferScreen()" style="display:none !important
                     ❌ CERRAR BUFFER
                 </button>
                 <button class="buffer-btn active" id="btnBufferLive" onclick="goToLive()">
@@ -956,7 +1125,7 @@
         </div>
         <div class="camera-list" id="cameraList"></div>
         <button class="btn-refresh-cameras" onclick="refreshCameraList()">🔄 Actualizar Lista</button>
-        <button class="btn-refresh-cameras" style="background: #e74c3c;" onclick="closeCameraSelector()">✖ Cerrar</button>
+        <button class="btn-refresh-cameras" style="background: #e74c3c;" onclick="closeCameraSelector()">✖ Cerr
     </div>
 
     <!-- Modal de reinicio -->
@@ -988,6 +1157,7 @@
         let broadcastPeer = null;
         let activeCalls = new Map();
         let isBroadcasting = false;
+        let broadcastEnabled = true; // Por defecto la transmisión está activa
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
         // ==================== SISTEMA DE BUFFER CIRCULAR ====================
@@ -1026,24 +1196,24 @@
         const CAMERA_KEYWORDS = {
             wifi: ['ip camera', 'network', 'wifi', 'wireless', 'rtsp', 'onvif', 'p2p', 'cloud', 'remote'],
             usb_otg: ['usb', 'otg', 'uvc', 'generic usb', 'usb camera', 'usb2.0', 'usb3.0'],
-            external: ['hdmi', 'capture', 'cam link', 'elgato', 'avermedia', 'blackmagic', 'magewell', 'obs', 'virtual'],
-            internal: ['integrated', 'built-in', 'internal', 'laptop', 'front', 'rear', 'faceTime', 'photo booth', 'snap']
+            external: ['hdmi', 'capture', 'cam link', 'elgato', 'avermedia', 'blackmagic', 'magewell', 'obs', 'vi
+            internal: ['integrated', 'built-in', 'internal', 'laptop', 'front', 'rear', 'faceTime', 'photo booth'
         };
 
         function classifyCamera(label) {
             if (!label) return { type: 'unknown', priority: 99 };
             const lowerLabel = label.toLowerCase();
             for (const keyword of CAMERA_KEYWORDS.wifi) {
-                if (lowerLabel.includes(keyword)) return { type: 'wifi', priority: CAMERA_PRIORITY.WIFI, label: 'WiFi/IP' };
+                if (lowerLabel.includes(keyword)) return { type: 'wifi', priority: CAMERA_PRIORITY.WIFI, label: '
             }
             for (const keyword of CAMERA_KEYWORDS.usb_otg) {
-                if (lowerLabel.includes(keyword)) return { type: 'usb_otg', priority: CAMERA_PRIORITY.USB_OTG, label: 'USB/OTG' };
+                if (lowerLabel.includes(keyword)) return { type: 'usb_otg', priority: CAMERA_PRIORITY.USB_OTG, la
             }
             for (const keyword of CAMERA_KEYWORDS.external) {
-                if (lowerLabel.includes(keyword)) return { type: 'external', priority: CAMERA_PRIORITY.EXTERNAL, label: 'HDMI/Capture' };
+                if (lowerLabel.includes(keyword)) return { type: 'external', priority: CAMERA_PRIORITY.EXTERNAL, 
             }
             for (const keyword of CAMERA_KEYWORDS.internal) {
-                if (lowerLabel.includes(keyword)) return { type: 'internal', priority: CAMERA_PRIORITY.INTERNAL, label: 'Interna' };
+                if (lowerLabel.includes(keyword)) return { type: 'internal', priority: CAMERA_PRIORITY.INTERNAL, 
             }
             if (lowerLabel.includes('camera') || lowerLabel.includes('cam')) {
                 return { type: 'external', priority: CAMERA_PRIORITY.EXTERNAL, label: 'Cámara' };
@@ -1052,7 +1222,7 @@
         }
 
         function getCameraIcon(type) {
-            const icons = { wifi: '📡', phone: '📱', usb_otg: '🔌', external: '🎥', internal: '💻', unknown: '📷' };
+            const icons = { wifi: '📡', phone: '📱', usb_otg: '🔌', external: '🎥', internal: '💻', unknown: '📷'
             return icons[type] || '📷';
         }
 
@@ -1146,7 +1316,7 @@
                 const videoDevices = devices.filter(d => d.kind === 'videoinput');
                 return videoDevices.map(device => {
                     const classification = classifyCamera(device.label);
-                    return { deviceId: device.deviceId, label: device.label || 'Cámara sin nombre', ...classification };
+                    return { deviceId: device.deviceId, label: device.label || 'Cámara sin nombre', ...classifica
                 }).sort((a, b) => a.priority - b.priority);
             } catch (err) {
                 console.error('Error enumerando cámaras:', err);
@@ -1157,11 +1327,11 @@
         async function showCameraSelector() {
             const cameraList = document.getElementById('cameraList');
             const selector = document.getElementById('cameraSelector');
-            cameraList.innerHTML = '<div style="text-align: center; color: #aaa; padding: 20px;">Buscando cámaras...</div>';
+            cameraList.innerHTML = '<div style="text-align: center; color: #aaa; padding: 20px;">Buscando cámaras
             selector.classList.add('active');
             const cameras = await getAvailableCameras();
             if (cameras.length === 0) {
-                cameraList.innerHTML = '<div style="text-align: center; color: #e74c3c; padding: 20px;">No se encontraron cámaras</div>';
+                cameraList.innerHTML = '<div style="text-align: center; color: #e74c3c; padding: 20px;">No se enc
                 return;
             }
             cameraList.innerHTML = cameras.map((cam, index) => `
@@ -1203,13 +1373,19 @@
                 video.srcObject = stream;
                 document.getElementById('cameraPlaceholder').classList.add('hidden');
                 video.classList.remove('hidden');
+                // Apply current mute state to new stream
+                video.muted = !soundEnabled;
+                const delayedVideo = document.getElementById('delayedVideo');
+                if (delayedVideo) delayedVideo.muted = !soundEnabled;
                 const devices = await navigator.mediaDevices.enumerateDevices();
                 const device = devices.find(d => d.deviceId === deviceId);
                 currentCameraLabel = device ? device.label : 'Cámara seleccionada';
                 console.log('✅ Cámara conectada:', currentCameraLabel);
                 playBeep(800, 100, 'sine');
                 setTimeout(() => initMSEDelaySystem(), 1000);
-                restartBroadcast();
+                if (broadcastEnabled) {
+                    restartBroadcast();
+                }
                 startBufferRecording();
             } catch (err) {
                 console.error('Error conectando cámara:', err);
@@ -1234,7 +1410,7 @@
                     try {
                         console.log(`🎥 Intentando conectar: ${camera.label}`);
                         const constraints = {
-                            video: { deviceId: { exact: camera.deviceId }, width: { ideal: 1280 }, height: { ideal: 720 } },
+                            video: { deviceId: { exact: camera.deviceId }, width: { ideal: 1280 }, height: { idea
                             audio: true
                         };
                         stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -1247,7 +1423,9 @@
                         console.log('✅ Cámara conectada:', currentCameraLabel);
                         playBeep(800, 100, 'sine');
                         setTimeout(() => initMSEDelaySystem(), 1500);
-                        setTimeout(initBroadcastPeerJS, 1000);
+                        if (broadcastEnabled) {
+                            setTimeout(initBroadcastPeerJS, 1000);
+                        }
                         startBufferRecording();
                         return;
                     } catch (err) {
@@ -1262,7 +1440,56 @@
             }
         }
 
-        function restartBroadcast() {
+        
+        // ==================== CONTROL DE TRANSMISIÓN EN VIVO ====================
+        function toggleBroadcast() {
+            broadcastEnabled = !broadcastEnabled;
+            const btn = document.getElementById('btnToggleBroadcast');
+            const broadcastStatus = document.getElementById('broadcastStatus');
+
+            if (broadcastEnabled) {
+                // Reactivar transmisión
+                btn.innerHTML = '🔒 JUEGO PRIVADO';
+                btn.classList.remove('inactive');
+                console.log('📡 Transmisión reactivada');
+
+                // Reiniciar PeerJS si hay stream
+                if (stream && !broadcastPeer) {
+                    initBroadcastPeerJS();
+                }
+
+                playBeep(1000, 150, 'sine');
+            } else {
+                // Desactivar transmisión
+                btn.innerHTML = '🔓 JUEGO PUBLICO';
+                btn.classList.add('inactive');
+                console.log('📴 Transmisión desactivada - Los espectadores no ven la cámara');
+
+                // Desconectar PeerJS pero mantener el stream local
+                if (broadcastPeer) {
+                    // Cerrar todas las llamadas activas
+                    activeCalls.forEach((call, peerId) => {
+                        try { call.close(); } catch(e) {}
+                    });
+                    activeCalls.clear();
+
+                    // Destruir el peer pero mantener la referencia para reconectar
+                    broadcastPeer.destroy();
+                    broadcastPeer = null;
+                }
+
+                isBroadcasting = false;
+                if (broadcastStatus) broadcastStatus.style.display = 'none';
+
+                playBeep(400, 300, 'square');
+            }
+        }
+
+function restartBroadcast() {
+            if (!broadcastEnabled) {
+                console.log('📴 Transmisión desactivada - No se reinicia broadcast');
+                return;
+            }
             if (broadcastPeer) {
                 broadcastPeer.destroy();
                 broadcastPeer = null;
@@ -1365,7 +1592,7 @@
                     console.error('❌ Error MediaRecorder:', err);
                 };
                 delayMediaRecorder.start(500);
-                document.getElementById('delayIndicator').style.display = 'block';
+                document.getElementById('delayIndicator').style.display = 'none';
                 console.log('🔴 Grabación continua iniciada - Retardo:', DELAY_MS/1000, 's');
             } catch (err) {
                 console.error('❌ Error iniciando grabación:', err);
@@ -1565,12 +1792,590 @@
         }
 
         function updateLiveRecordingTime() {
-            const elapsed = bufferStartTime ? Date.now() - bufferStartTime : 0;
-            document.getElementById('liveRecordingTime').textContent = formatDuration(elapsed);
+            if (!bufferStartTime) return;
+            let elapsed = Date.now() - bufferStartTime;
+
+            // Restar tiempo de pausas por falta de movimiento
+            if (recordingPausedByMotion && pauseStartTime > 0) {
+                elapsed = pauseStartTime - bufferStartTime - totalPausedTime;
+            } else if (totalPausedTime > 0) {
+                elapsed -= totalPausedTime;
+            }
+
+            // Restar tiempo de pausa manual (botón STOP)
+            if (manualRecordingPaused && manualPauseStartTime > 0) {
+                elapsed = manualAccumulatedTime;
+            } else if (manualTotalPausedTime > 0) {
+                elapsed -= manualTotalPausedTime;
+            }
+
+            document.getElementById('liveRecordingTime').textContent = formatDuration(Math.max(0, elapsed));
         }
 
         // ==================== SISTEMA MSE PARA REPRODUCCIÓN SIN PARPADEO ====================
-        function initPlaybackMSE() {
+                // ==================== SISTEMA DE DETECCIÓN DE MOVIMIENTO ====================
+        // Detecta movimiento de la cámara. Si no hay movimiento por 8 minutos,
+        // pausa la grabación y el temporizador. Al detectar movimiento nuevamente,
+        // reanuda la grabación y el temporizador continúa desde donde quedó.
+
+        let motionCanvas = null;
+        let motionCtx = null;
+        let previousFrameData = null;
+        let motionDetectionActive = false;
+        let motionCheckInterval = null;
+        let motionLastDetectedTime = 0;
+        let motionScoreHistory = [];
+        let motionWarmupCounter = 0;
+        let motionPanel = null;
+        let recordingPausedByMotion = false;
+        let totalPausedTime = 0;
+        let pauseStartTime = 0;
+        let accumulatedRecordingTime = 0;
+
+        const MOTION_CONFIG = {
+            sampleSize: 20,           // Muestrear 1 de cada N píxeles
+            threshold: 30,            // Umbral de diferencia de brillo
+            minMotionScore: 10,       // Score mínimo para considerar movimiento
+            noMotionTimeout: 5 * 60 * 1000, // 8 minutos sin movimiento = pausar
+            checkInterval: 500,       // Revisar cada 500ms
+            sensitivity: 1.0,
+            warmupFrames: 3           // Frames de calentamiento
+        };
+
+        function initMotionDetection() {
+            if (motionCanvas) return;
+
+            motionCanvas = document.createElement('canvas');
+            motionCanvas.width = 160;
+            motionCanvas.height = 120;
+            motionCanvas.style.display = 'none';
+            document.body.appendChild(motionCanvas);
+
+            motionCtx = motionCanvas.getContext('2d', { willReadFrequently: true });
+            motionDetectionActive = true;
+            motionLastDetectedTime = Date.now();
+            recordingPausedByMotion = false;
+            totalPausedTime = 0;
+            pauseStartTime = 0;
+            accumulatedRecordingTime = 0;
+            motionWarmupCounter = 0;
+            motionScoreHistory = [];
+
+            // Create panel but keep it hidden initially
+            createMotionPanel();
+            hideMotionPanel(); // Panel oculto por defecto al iniciar
+
+            motionCheckInterval = setInterval(checkMotion, MOTION_CONFIG.checkInterval);
+
+            const btn = document.getElementById('btnMotionToggle');
+            if (btn) {
+                btn.classList.add('active');
+                btn.style.background = '#e94560';
+            }
+
+            console.log('🔍 Detección de movimiento iniciada (8 min timeout)');
+            playBeep(1200, 100, 'sine');
+        }
+
+        function createMotionPanel() {
+            // Remove existing panel if any
+            const existing = document.getElementById('motionPanel');
+            if (existing) existing.remove();
+
+            motionPanel = document.createElement('div');
+            motionPanel.id = 'motionPanel';
+            motionPanel.className = 'motion-panel inactive-motion';
+            motionPanel.innerHTML = `
+                <div class="motion-header">
+                    <div class="motion-dot" id="motionDot"></div>
+                    <div class="motion-title" id="motionTitle">Iniciando...</div>
+                </div>
+                <div class="motion-info">
+                    <div>Score: <span class="value" id="motionScoreVal">0</span></div>
+                    <div>Estado: <span class="value recording" id="motionRecStatus">Grabando</span></div>
+                </div>
+                <div class="motion-info">
+                    <div>Tiempo acumulado: <span class="value" id="motionAccumTime">00:00:00</span></div>
+                </div>
+            `;
+            document.body.appendChild(motionPanel);
+        }
+
+        function showMotionPanel() {
+            if (!motionPanel) createMotionPanel();
+            if (motionPanel) motionPanel.classList.add('visible');
+        }
+
+        function hideMotionPanel() {
+            if (motionPanel) motionPanel.classList.remove('visible');
+        }
+
+        function updateMotionPanel(detected, score) {
+            if (!motionPanel) return;
+
+            const dot = document.getElementById('motionDot');
+            const title = document.getElementById('motionTitle');
+            const scoreVal = document.getElementById('motionScoreVal');
+            const recStatus = document.getElementById('motionRecStatus');
+            const accumTime = document.getElementById('motionAccumTime');
+
+            if (recordingPausedByMotion) {
+                // Estado: Pausado por falta de movimiento
+                dot.className = 'motion-dot paused';
+                title.textContent = '⏸ Sin movimiento - Pausado';
+                title.className = 'motion-title paused';
+                motionPanel.className = 'motion-panel paused-motion';
+                if (recStatus) {
+                    recStatus.textContent = 'Pausado';
+                    recStatus.className = 'value paused';
+                }
+            } else if (detected) {
+                // Estado: Movimiento detectado, grabando
+                dot.className = 'motion-dot detected';
+                title.textContent = '¡Movimiento detectado!';
+                title.className = 'motion-title detected';
+                motionPanel.className = 'motion-panel active-motion';
+                if (recStatus) {
+                    recStatus.textContent = 'Grabando';
+                    recStatus.className = 'value recording';
+                }
+            } else {
+                // Estado: Sin movimiento pero aún dentro del timeout
+                dot.className = 'motion-dot';
+                title.textContent = 'Sin movimiento';
+                title.className = 'motion-title';
+                motionPanel.className = 'motion-panel inactive-motion';
+                if (recStatus) {
+                    recStatus.textContent = 'Grabando';
+                    recStatus.className = 'value recording';
+                }
+            }
+
+            if (scoreVal) scoreVal.textContent = score;
+
+            // Calcular tiempo acumulado real (restando pausas)
+            let effectiveTime = accumulatedRecordingTime;
+            if (!recordingPausedByMotion && bufferStartTime) {
+                effectiveTime += (Date.now() - bufferStartTime - totalPausedTime);
+            }
+            if (accumTime) accumTime.textContent = formatDuration(effectiveTime);
+        }
+
+        function checkMotion() {
+            if (!motionDetectionActive || !stream || !motionCtx) return;
+
+            const video = document.getElementById('cameraFeed');
+            if (!video || video.readyState < 2) return;
+
+            try {
+                motionCtx.drawImage(video, 0, 0, motionCanvas.width, motionCanvas.height);
+                const frameData = motionCtx.getImageData(0, 0, motionCanvas.width, motionCanvas.height);
+                const data = frameData.data;
+
+                if (!previousFrameData) {
+                    previousFrameData = new Uint8ClampedArray(data);
+                    return;
+                }
+
+                let motionScore = 0;
+                const sample = MOTION_CONFIG.sampleSize;
+                const thresh = MOTION_CONFIG.threshold;
+                const w = motionCanvas.width;
+                const h = motionCanvas.height;
+
+                for (let y = 0; y < h; y += sample) {
+                    for (let x = 0; x < w; x += sample) {
+                        const pos = (x + y * w) * 4;
+                        const b1 = (data[pos] + data[pos+1] + data[pos+2]) / 3;
+                        const b2 = (previousFrameData[pos] + previousFrameData[pos+1] + previousFrameData[pos+2])
+                        if (Math.abs(b1 - b2) > thresh) motionScore++;
+                    }
+                }
+
+                previousFrameData.set(data);
+
+                motionWarmupCounter++;
+                if (motionWarmupCounter < MOTION_CONFIG.warmupFrames) return;
+
+                motionScoreHistory.push(motionScore);
+                if (motionScoreHistory.length > 5) motionScoreHistory.shift();
+
+                const avgScore = Math.round(
+                    (motionScoreHistory.reduce((a,b) => a+b, 0) / motionScoreHistory.length) * MOTION_CONFIG.sens
+                );
+
+                const motionDetected = avgScore >= MOTION_CONFIG.minMotionScore;
+                const now = Date.now();
+
+                if (motionDetected) {
+                    motionLastDetectedTime = now;
+
+                    if (recordingPausedByMotion) {
+                        // Reanudar grabación - movimiento detectado después de pausa
+                        resumeRecordingFromPause();
+                    }
+                }
+
+                // Verificar timeout de 8 minutos sin movimiento
+                const timeSinceMotion = now - motionLastDetectedTime;
+                if (!recordingPausedByMotion && timeSinceMotion > MOTION_CONFIG.noMotionTimeout) {
+                    pauseRecordingForMotion();
+                }
+
+                updateMotionPanel(motionDetected, avgScore);
+
+            } catch (err) {
+                console.error('❌ Error detección movimiento:', err);
+            }
+        }
+
+        function pauseRecordingForMotion() {
+            if (recordingPausedByMotion) return;
+
+            console.log('⏸ 8 min sin movimiento - Pausando grabación y temporizador');
+            recordingPausedByMotion = true;
+            pauseStartTime = Date.now();
+
+            // Mostrar panel automáticamente al pausar por falta de movimiento
+            showMotionPanel();
+
+            // Guardar el tiempo acumulado hasta ahora
+            accumulatedRecordingTime += (pauseStartTime - bufferStartTime - totalPausedTime);
+
+            // Detener grabadores
+            if (bufferMediaRecorder && bufferMediaRecorder.state !== 'inactive') {
+                bufferMediaRecorder.stop();
+            }
+            if (delayMediaRecorder && delayMediaRecorder.state !== 'inactive') {
+                delayMediaRecorder.stop();
+            }
+
+            // Pausar video de retardo
+            const delayedVideo = document.getElementById('delayedVideo');
+            if (delayedVideo) delayedVideo.pause();
+
+            playBeep(400, 400, 'square');
+        }
+
+        function resumeRecordingFromPause() {
+            if (!recordingPausedByMotion) return;
+
+            console.log('🎬 Movimiento detectado - Reanudando grabación desde donde quedó');
+
+            // Ocultar panel automáticamente al reanudar por movimiento
+            hideMotionPanel();
+
+            // Calcular tiempo de pausa
+            const pauseDuration = Date.now() - pauseStartTime;
+            totalPausedTime += pauseDuration;
+
+            recordingPausedByMotion = false;
+            pauseStartTime = 0;
+
+            // Reiniciar grabadores desde donde quedaron (sin resetear buffer)
+            if (stream) {
+                // Reiniciar delay
+                if (delayMediaSource && delayMediaSource.readyState === 'open') {
+                    try { delayMediaSource.endOfStream(); } catch(e) {}
+                }
+                delayMediaSource = null;
+                delaySourceBuffer = null;
+                delayQueue = [];
+                isMSEReady = false;
+
+                const delayedVideo = document.getElementById('delayedVideo');
+                if (delayedVideo) {
+                    delayedVideo.pause();
+                    delayedVideo.removeAttribute('src');
+                    delayedVideo.load();
+                }
+
+                // Reiniciar MSE delay
+                setTimeout(() => initMSEDelaySystem(), 100);
+
+                // Reiniciar buffer recorder (sin limpiar circularBuffer)
+                const options = {
+                    mimeType: 'video/webm;codecs=vp9,opus',
+                    audioBitsPerSecond: 128000,
+                    videoBitsPerSecond: 2500000
+                };
+                if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                    options.mimeType = 'video/webm;codecs=vp8,opus';
+                    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                        options.mimeType = 'video/webm';
+                    }
+                }
+
+                try {
+                    bufferMediaRecorder = new MediaRecorder(stream, options);
+                    bufferMediaRecorder.ondataavailable = (event) => {
+                        if (event.data && event.data.size > 0) {
+                            const now = Date.now();
+                            const segmentDuration = 1000;
+                            const blobEntry = {
+                                blob: event.data,
+                                startTime: lastSegmentEndTime,
+                                endTime: lastSegmentEndTime + segmentDuration,
+                                timestamp: now,
+                                duration: segmentDuration,
+                                id: 'seg_' + now + '_' + lastSegmentEndTime
+                            };
+                            circularBuffer.push(blobEntry);
+                            lastSegmentEndTime += segmentDuration;
+                            totalBufferDuration = lastSegmentEndTime;
+
+                            // Mantener solo últimas 24 horas
+                            const maxDuration = BUFFER_DURATION_MS;
+                            while (circularBuffer.length > 0 &&
+                                   (totalBufferDuration - circularBuffer[0].startTime) > maxDuration) {
+                                circularBuffer.shift();
+                            }
+
+                            if (circularBuffer.length > 0 && circularBuffer[0].startTime > 0) {
+                                const offset = circularBuffer[0].startTime;
+                                circularBuffer.forEach(b => {
+                                    b.startTime -= offset;
+                                    b.endTime -= offset;
+                                });
+                                lastSegmentEndTime -= offset;
+                                totalBufferDuration = lastSegmentEndTime;
+                            }
+                        }
+                    };
+                    bufferMediaRecorder.onstop = () => { console.log('⏹ Buffer recorder detenido'); };
+                    bufferMediaRecorder.onerror = (err) => { console.error('❌ Error buffer recorder:', err); };
+                    bufferMediaRecorder.start(1000);
+                } catch (err) {
+                    console.error('❌ Error reiniciando buffer recorder:', err);
+                }
+            }
+
+            playBeep(1000, 150, 'sine');
+            console.log('✅ Grabación reanudada. Tiempo acumulado:', formatDuration(accumulatedRecordingTime));
+        }
+
+                // ==================== SISTEMA DE PAUSA MANUAL (BOTÓN STOP) ====================
+        // Botón STOP independiente que pausa/reanuda la grabación y el temporizador.
+        // El temporizador continúa desde el tiempo acumulado cuando se reanuda.
+
+        let manualRecordingPaused = false;
+        let manualPauseStartTime = 0;
+        let manualTotalPausedTime = 0;
+        let manualAccumulatedTime = 0;
+
+        function toggleManualRecordingPause() {
+            if (manualRecordingPaused) {
+                resumeManualRecording();
+            } else {
+                pauseManualRecording();
+            }
+        }
+
+        function pauseManualRecording() {
+            if (manualRecordingPaused) return;
+
+            console.log('⏹ OFF CAMARA presionado - Pausando grabación y temporizador');
+            manualRecordingPaused = true;
+            manualPauseStartTime = Date.now();
+
+            // Guardar tiempo acumulado hasta ahora
+            if (bufferStartTime) {
+                manualAccumulatedTime = (Date.now() - bufferStartTime) - manualTotalPausedTime - totalPausedTime;
+            }
+
+            // Detener grabadores
+            if (bufferMediaRecorder && bufferMediaRecorder.state !== 'inactive') {
+                bufferMediaRecorder.stop();
+            }
+            if (delayMediaRecorder && delayMediaRecorder.state !== 'inactive') {
+                delayMediaRecorder.stop();
+            }
+
+            // Pausar video de retardo
+            const delayedVideo = document.getElementById('delayedVideo');
+            if (delayedVideo) delayedVideo.pause();
+
+            // Actualizar UI de botones
+            updateStopButtonUI(true);
+
+            playBeep(400, 300, 'square');
+        }
+
+        function resumeManualRecording() {
+            if (!manualRecordingPaused) return;
+
+            console.log('▶️ ON CAMARA presionado - Reanudando grabación y temporizador');
+
+            // Calcular duración de la pausa
+            const pauseDuration = Date.now() - manualPauseStartTime;
+            manualTotalPausedTime += pauseDuration;
+
+            manualRecordingPaused = false;
+            manualPauseStartTime = 0;
+
+            // Reiniciar sistemas de grabación desde donde quedaron
+            if (stream) {
+                // Limpiar MSE delay
+                if (delayMediaSource && delayMediaSource.readyState === 'open') {
+                    try { delayMediaSource.endOfStream(); } catch(e) {}
+                }
+                delayMediaSource = null;
+                delaySourceBuffer = null;
+                delayQueue = [];
+                isMSEReady = false;
+
+                const delayedVideo = document.getElementById('delayedVideo');
+                if (delayedVideo) {
+                    delayedVideo.pause();
+                    delayedVideo.removeAttribute('src');
+                    delayedVideo.load();
+                }
+
+                // Reiniciar delay MSE
+                setTimeout(() => initMSEDelaySystem(), 100);
+
+                // Reiniciar buffer recorder sin limpiar circularBuffer
+                const options = {
+                    mimeType: 'video/webm;codecs=vp9,opus',
+                    audioBitsPerSecond: 128000,
+                    videoBitsPerSecond: 2500000
+                };
+                if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                    options.mimeType = 'video/webm;codecs=vp8,opus';
+                    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                        options.mimeType = 'video/webm';
+                    }
+                }
+
+                try {
+                    bufferMediaRecorder = new MediaRecorder(stream, options);
+                    bufferMediaRecorder.ondataavailable = (event) => {
+                        if (event.data && event.data.size > 0) {
+                            const now = Date.now();
+                            const segmentDuration = 1000;
+                            const blobEntry = {
+                                blob: event.data,
+                                startTime: lastSegmentEndTime,
+                                endTime: lastSegmentEndTime + segmentDuration,
+                                timestamp: now,
+                                duration: segmentDuration,
+                                id: 'seg_' + now + '_' + lastSegmentEndTime
+                            };
+                            circularBuffer.push(blobEntry);
+                            lastSegmentEndTime += segmentDuration;
+                            totalBufferDuration = lastSegmentEndTime;
+
+                            const maxDuration = BUFFER_DURATION_MS;
+                            while (circularBuffer.length > 0 &&
+                                   (totalBufferDuration - circularBuffer[0].startTime) > maxDuration) {
+                                circularBuffer.shift();
+                            }
+
+                            if (circularBuffer.length > 0 && circularBuffer[0].startTime > 0) {
+                                const offset = circularBuffer[0].startTime;
+                                circularBuffer.forEach(b => {
+                                    b.startTime -= offset;
+                                    b.endTime -= offset;
+                                });
+                                lastSegmentEndTime -= offset;
+                                totalBufferDuration = lastSegmentEndTime;
+                            }
+                        }
+                    };
+                    bufferMediaRecorder.onstop = () => { console.log('⏹ Buffer recorder detenido (manual)'); };
+                    bufferMediaRecorder.onerror = (err) => { console.error('❌ Error buffer recorder (manual):', 
+                    bufferMediaRecorder.start(1000);
+                } catch (err) {
+                    console.error('❌ Error reiniciando buffer recorder (manual):', err);
+                }
+            }
+
+            // Actualizar UI de botones
+            updateStopButtonUI(false);
+
+            playBeep(1000, 150, 'sine');
+            console.log('✅ Grabación reanudada. Tiempo acumulado:', formatDuration(manualAccumulatedTime));
+        }
+
+        function updateStopButtonUI(isPaused) {
+            // Botón del header
+            const btnHeader = document.getElementById('btnStopRecording');
+            if (btnHeader) {
+                if (isPaused) {
+                    btnHeader.classList.remove('recording');
+                    btnHeader.classList.add('paused');
+                    btnHeader.innerHTML = '▶️ ON CAMARA';
+                } else {
+                    btnHeader.classList.remove('paused');
+                    btnHeader.classList.add('recording');
+                    btnHeader.innerHTML = '⏹ OFF CAMARA';
+                }
+            }
+
+            // Botón de la barra inferior
+            const btnBar = document.getElementById('btnStopRecBar');
+            if (btnBar) {
+                if (isPaused) {
+                    btnBar.style.background = '#f39c12';
+                    btnBar.innerHTML = '▶️ ON CAMARA';
+                } else {
+                    btnBar.style.background = '#c0392b';
+                    btnBar.innerHTML = '⏹ OFF CAMARA';
+                }
+            }
+        }
+
+function stopMotionDetection() {
+            motionDetectionActive = false;
+            if (motionCheckInterval) {
+                clearInterval(motionCheckInterval);
+                motionCheckInterval = null;
+            }
+            if (motionCanvas) {
+                motionCanvas.remove();
+                motionCanvas = null;
+                motionCtx = null;
+            }
+            if (motionPanel) {
+                motionPanel.remove();
+                motionPanel = null;
+            }
+            previousFrameData = null;
+            motionScoreHistory = [];
+            motionWarmupCounter = 0;
+
+            // Si estaba pausado, reanudar normal
+            if (recordingPausedByMotion) {
+                recordingPausedByMotion = false;
+                totalPausedTime += (Date.now() - pauseStartTime);
+                pauseStartTime = 0;
+            }
+
+            const btn = document.getElementById('btnMotionToggle');
+            if (btn) {
+                btn.classList.remove('active');
+                btn.style.background = '';
+            }
+
+            console.log('🔍 Detección de movimiento detenida');
+            playBeep(600, 100, 'sine');
+        }
+
+        function toggleMotionDetection() {
+            if (!motionDetectionActive) {
+                // Primera vez: iniciar detección (panel oculto por defecto en initMotionDetection)
+                initMotionDetection();
+            } else {
+                // Detección ya activa: solo toggle visibilidad del panel manualmente
+                if (motionPanel && motionPanel.classList.contains('visible')) {
+                    hideMotionPanel();
+                } else {
+                    showMotionPanel();
+                }
+            }
+        }
+
+function initPlaybackMSE() {
             cleanupPlaybackMSE();
 
             const video = document.getElementById('playbackVideo');
@@ -1892,8 +2697,8 @@
             const mseReady = initPlaybackMSE();
 
             // Actualizar información del buffer
-            document.getElementById('bufferStartTime').textContent = bufferStartTime ? formatTime(new Date(bufferStartTime)) : '--:--:--';
-            document.getElementById('panelStartTime').textContent = bufferStartTime ? formatTime(new Date(bufferStartTime)) : '--:--:--';
+            document.getElementById('bufferStartTime').textContent = bufferStartTime ? formatTime(new Date(buffer
+            document.getElementById('panelStartTime').textContent = bufferStartTime ? formatTime(new Date(bufferS
 
             // Si no hay posición específica, ir al final (más reciente)
             if (!isPlayingFromBuffer) {
@@ -2102,6 +2907,10 @@
 
         // ==================== PEERJS BROADCAST ====================
         function initBroadcastPeerJS() {
+            if (!broadcastEnabled) {
+                console.log('📴 Transmisión desactivada - No se inicia broadcast');
+                return;
+            }
             if (!stream) {
                 console.error('❌ No hay stream disponible para transmitir');
                 return;
@@ -2192,9 +3001,27 @@
 
         function toggleSound() {
             soundEnabled = !soundEnabled;
-            const btn = document.getElementById('soundBtn');
-            btn.textContent = soundEnabled ? '🔊' : '🔇';
-            btn.classList.toggle('muted', !soundEnabled);
+            const btn = document.getElementById('btnSoundToggle');
+            if (btn) {
+                btn.textContent = soundEnabled ? '🔊' : '🔇';
+                btn.classList.toggle('muted', !soundEnabled);
+            }
+            // Mute/unmute the delayed video element (camera audio)
+            const delayedVideo = document.getElementById('delayedVideo');
+            if (delayedVideo) {
+                delayedVideo.muted = !soundEnabled;
+            }
+            // Also mute/unmute the raw camera feed
+            const cameraFeed = document.getElementById('cameraFeed');
+            if (cameraFeed) {
+                cameraFeed.muted = !soundEnabled;
+            }
+            // Mute/unmute the playback video in buffer screen
+            const playbackVideo = document.getElementById('playbackVideo');
+            if (playbackVideo) {
+                playbackVideo.muted = !soundEnabled;
+            }
+            console.log(soundEnabled ? '🔊 Audio activado' : '🔇 Audio silenciado');
         }
 
         function showResetModal() {
@@ -2218,6 +3045,22 @@
             stopDelaySystem();
             stopBufferRecording();
 
+            // Resetear estado de detección de movimiento
+            accumulatedRecordingTime = 0;
+            totalPausedTime = 0;
+            pauseStartTime = 0;
+            recordingPausedByMotion = false;
+            motionLastDetectedTime = Date.now();
+            motionWarmupCounter = 0;
+            motionScoreHistory = [];
+
+            // Resetear estado de pausa manual
+            manualRecordingPaused = false;
+            manualPauseStartTime = 0;
+            manualTotalPausedTime = 0;
+            manualAccumulatedTime = 0;
+            updateStopButtonUI(false);
+
             // Reiniciar grabación desde cero
             setTimeout(() => {
                 if (stream) {
@@ -2235,6 +3078,16 @@
             initPlayers();
             initBufferSliderEvents();
             setTimeout(findAndConnectCamera, 500);
+            // Set initial audio mute state
+            const delayedVideo = document.getElementById('delayedVideo');
+            if (delayedVideo) delayedVideo.muted = !soundEnabled;
+            const cameraFeed = document.getElementById('cameraFeed');
+            if (cameraFeed) cameraFeed.muted = !soundEnabled;
+            // Iniciar detección de movimiento automáticamente, pero panel oculto
+            setTimeout(() => {
+                initMotionDetection();
+                hideMotionPanel();
+            }, 2000);
             navigator.mediaDevices.addEventListener('devicechange', () => {
                 console.log('🔄 Dispositivos cambiados, reescaneando...');
                 setTimeout(() => {
@@ -2267,9 +3120,13 @@
             if (stream) {
                 stream.getTracks().forEach(track => track.stop());
             }
+            stopMotionDetection();
             stopDelaySystem();
             stopBufferRecording();
             cleanupPlaybackMSE();
+            // Limpiar estado de pausa manual
+            manualRecordingPaused = false;
+            manualPauseStartTime = 0;
         });
 
         init();
@@ -2326,9 +3183,7 @@
         }
     </script>
 
-    <button class="fullscreen-btn" id="fullscreenBtn" onclick="toggleFullscreen()" title="Pantalla Completa">
-        ⛶
-    </button>
+
 
     <script>
     function showPinChangeModal() {
@@ -2342,18 +3197,18 @@
             font-family: 'Segoe UI', sans-serif; padding: 20px;
         `;
         overlay.innerHTML = `
-            <div style="background: #16213e; padding: 40px; border-radius: 20px; border: 3px solid #3498db; max-width: 450px; width: 100%; text-align: center;">
+            <div style="background: #16213e; padding: 40px; border-radius: 20px; border: 3px solid #3498db; max-w
                 <div style="font-size: 3em; margin-bottom: 15px;">🔐</div>
                 <h2 style="color: #3498db; margin-bottom: 15px; font-size: 1.5em;">Cambiar PIN de Acceso</h2>
                 <p style="color: #aaa; margin-bottom: 25px; font-size: 0.9em; line-height: 1.6;">
                     Para cambiar el PIN, LLAME A SU PROVEEDOR DE SERVICIO .<br><br>
                     Busca su numero Cel:<br>
-                    <code style="color: #e94560; background: #0a0a1a; padding: 8px 12px; border-radius: 5px; display: inline-block; margin: 10px 0; font-family: monospace; font-size: 0.9em;">
+                    <code style="color: #e94560; background: #0a0a1a; padding: 8px 12px; border-radius: 5px; disp
                         const ADMIN_PIN = "mesa1";
                     </code><br>
                     Y solicite los 4 dígitos por tu nuevo PIN.
                 </p>
-                <button onclick="closePinChangeModal()" style="padding: 12px 30px; background: #3498db; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: bold; transition: all 0.3s;">
+                <button onclick="closePinChangeModal()" style="padding: 12px 30px; background: #3498db; color: #f
                     Entendido
                 </button>
                 <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #0f3460;">
