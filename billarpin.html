@@ -688,7 +688,7 @@
 <body>
 
     <script>
-    const ADMIN_PIN = "1971";
+    const getAdminPin = () => localStorage.getItem('mesa1_admin_pin') || "1234";
     (function() {
         const PIN_STORAGE_KEY = 'mesa1_pin_verified';
         const PIN_TIMESTAMP_KEY = 'mesa1_pin_time';
@@ -944,7 +944,7 @@
                 enteredPin += input.value;
             });
             const errorDiv = document.getElementById('pin-error');
-            if (enteredPin === ADMIN_PIN) {
+            if (enteredPin === getAdminPin()) {
                 inputs.forEach(input => {
                     input.style.borderColor = '#2ecc71';
                     input.style.background = 'rgba(46, 204, 113, 0.2)';
@@ -3046,7 +3046,7 @@
 
     <script>
     // ==================== SISTEMA DE CAMBIO DE PIN (FUNCIONAL) ====================
-    let CURRENT_ADMIN_PIN = localStorage.getItem('mesa1_admin_pin') || "1971";
+    let CURRENT_ADMIN_PIN = localStorage.getItem('mesa1_admin_pin') || "1234";
 
     Object.defineProperty(window, 'ADMIN_PIN', {
         get: function() { return CURRENT_ADMIN_PIN; },
