@@ -1002,7 +1002,7 @@
                 <button class="btn-player-count" onclick="setPlayerCount(4)">4 JUGADOR</button>
                 <button class="btn-player-count" onclick="setPlayerCount(5)">5 JUGADOR</button>
                 <button class="btn-player-count" onclick="setPlayerCount(6)">6 JUGADOR</button>
-                <button class="btn-inicio-juego" id="btnCambiarPin" onclick="showPinChangeModal()" style="background: #9b59b6; margin-left: 10px;">
+                <button class="btn-inicio-juego" id="btnCambiarPin" onclick="showPinChangeModal()" style="background: #9b59b6; margin-left: 10px; display: none;">
                     🔐 CAMBIAR PIN
                 </button>
             </div>
@@ -2986,7 +2986,7 @@
         // ==================== INICIALIZACIÓN ====================
         
         // ==================== MOSTRAR/OCULTAR BOTÓN CAMBIAR PIN ====================
-        let pinButtonVisible = true;
+        let pinButtonVisible = false;
 
         function togglePinButtonVisibility() {
             const btn = document.getElementById('btnCambiarPin');
